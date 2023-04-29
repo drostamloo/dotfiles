@@ -1,0 +1,59 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+
+endglobal
+
+context "math()"
+snippet mcal "mathcal" iA
+\mathcal{$1}$0
+endsnippet
+
+snippet RR "real" iA
+\mathbb{R}
+endsnippet
+
+snippet QQ "Q" iA
+\mathbb{Q}
+endsnippet
+
+snippet ZZ "Z" iA
+\mathbb{Z}
+endsnippet
+
+snippet NN "N" iA
+\mathbb{N}
+endsnippet
+
+snippet CC "C" iA
+\mathbb{C}
+endsnippet
+
+context "math()"
+snippet tt "text" iA
+\text{$1}$0
+endsnippet
+
+context "math()"
+snippet mbf "math boldface" iA
+\mathbf{$1}
+endsnippet
+
+snippet tbf "text boldface" iA
+\textbf{$1}
+endsnippet
+
+snippet emph "emphasize" i
+\emph{$1}
+endsnippet
+
+snippet titalic "text italics" iA
+\textit{$1}
+endsnippet

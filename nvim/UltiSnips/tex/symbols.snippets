@@ -1,0 +1,149 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+
+endglobal
+
+snippet ooo "\infty" iA
+\infty
+endsnippet
+
+context "math()"
+snippet EE "exists" iA
+\exists 
+endsnippet
+
+context "math()"
+snippet AA "forall" iA
+\forall 
+endsnippet
+
+snippet lll "l" iA
+\ell
+endsnippet
+
+context "math()"
+snippet nabl "nabla" iA
+\nabla 
+endsnippet
+
+context "math()"
+snippet xx "cross" iA
+\times 
+endsnippet
+
+priority 100
+snippet ** "cdot" iA
+\cdot 
+endsnippet
+
+priority 100
+snippet .. "ldots" iA
+\ldots
+endsnippet
+
+snippet => "implies" Ai
+\implies
+endsnippet
+
+snippet =< "implied by" Ai
+\impliedby
+endsnippet
+
+context "math()"
+snippet iff "iff" iA
+\iff
+endsnippet
+
+snippet != "equals" iA
+\neq 
+endsnippet
+
+snippet leq "leq" iA
+\leqslant 
+endsnippet
+
+snippet geq "geq" iA
+\geqslant 
+endsnippet
+
+priority 100
+context "math()"
+snippet -> "to" iA
+\to 
+endsnippet
+
+priority 200
+context "math()"
+snippet <-> "leftrightarrow" iA
+\leftrightarrow
+endsnippet
+
+context "math()"
+snippet !> "mapsto" iA
+\mapsto 
+endsnippet
+
+context "math()"
+snippet \\\ "setminus" iA
+\setminus
+endsnippet
+
+snippet >> ">>" iA
+\gg
+endsnippet
+
+snippet << "<<" iA
+\ll
+endsnippet
+
+snippet ~~ "~" iA
+\sim 
+endsnippet
+
+snippet || "mid" iA
+ \mid 
+endsnippet
+
+context "math()"
+snippet sbs "subset" Ai
+\subset 
+endsnippet
+
+context "math()"
+snippet sps "superset" Aw
+\superset
+endsnippet
+
+snippet notin "not in " iA
+\not\in 
+endsnippet
+
+context "math()"
+snippet inn "in " iA
+\in 
+endsnippet
+
+snippet Nn "cap" iA
+\cap 
+endsnippet
+
+snippet UU "cup" iA
+\cup 
+endsnippet
+
+snippet OO "emptyset" iA
+\varnothing
+endsnippet
+
+snippet <! "normal" iA
+\triangleleft 
+endsnippet
+

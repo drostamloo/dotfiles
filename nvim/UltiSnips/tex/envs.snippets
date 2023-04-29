@@ -1,0 +1,248 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+	return x != '0' and y != '0'
+
+endglobal
+
+snippet template "Basic template" b
+\documentclass[letterpaper, 12pt]{$1}
+
+\input{preamble.tex}
+\usepackage[headheight=20pt]{geometry}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palladio needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+\title{$2}
+\author{$3}
+\date{$4}
+
+\begin{document}
+
+$5
+
+\end{document}
+endsnippet
+
+snippet beg "begin{} / end{}" bA
+\\begin{$1}
+	$2
+\\end{$1}$0
+endsnippet
+
+snippet table "Table environment" b
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{${5:c}}
+	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+	\end{tabular}
+\end{table}
+endsnippet
+
+snippet fig "Figure environment" b
+\begin{figure}[${1:htpb}]
+	\centering
+	${2:\includegraphics[width=0.8\textwidth]{$3}}
+	\caption{${4:$3}}
+	\label{fig:${5:${3/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet plot "Plot" w
+\begin{figure}[$1]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			xmin= ${2:-10}, xmax= ${3:10},
+			ymin= ${4:-10}, ymax = ${5:10},
+			axis lines = middle,
+		]
+			\addplot[domain=$2:$3, samples=${6:100}]{$7};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{$8}
+	\label{${9:$8}}
+\end{figure}
+endsnippet
+
+snippet enum "Enumerate" bA
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize" bA
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet desc "Description" b
+\begin{description}
+	\item[$1] $0
+\end{description}
+endsnippet
+
+snippet thm "theorem" bA
+\begin{thm}
+	$1
+\end{thm}$0
+endsnippet
+
+snippet nthm "named theorem" bA
+\begin{namedthm}{$1}
+	$2
+\end{namedthm}$0
+endsnippet
+
+snippet lem "lemma" bA
+\begin{lem}
+	$1
+\end{lem}$0
+endsnippet
+
+snippet prop "proposition" bA
+\begin{prop}
+	$1
+\end{prop}$0
+endsnippet
+
+snippet cor "cor" bA
+\begin{cor}
+	$1
+\end{cor}$0
+endsnippet
+
+snippet fact "fact" bA
+\begin{fact}
+	$1
+\end{fact}$0
+endsnippet
+
+snippet claim "claim" bA
+\begin{claim}
+	$1
+\end{claim}$0
+endsnippet
+
+snippet disc "discussion" bA
+\begin{nameddisc}{$1}
+	$2
+\end{nameddisc}$0
+endsnippet
+
+snippet defn "definition" bA
+\begin{defn}
+	$1
+\end{defn}$0
+endsnippet
+
+snippet pac "Package" b
+\usepackage[${1:options}]{${2:package}}$0
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "Math" wA
+\[
+${1:${VISUAL}}
+.\] $0
+endsnippet
+
+snippet pmat "pmat" iA
+\begin{pmatrix} $1 \end{pmatrix} $0
+endsnippet
+
+snippet bmat "bmat" iA
+\begin{bmatrix} $1 \end{bmatrix} $0
+endsnippet
+snippet chap "Chapter" b
+\chapter{${1:name}}
+$0
+endsnippet
+
+snippet sec "Section" b
+\section{${1:name}}
+$0
+endsnippet
+
+snippet sec* "Section*" b
+\section*{${1:name}}
+$0
+endsnippet
+
+snippet ssec "Subsection" b
+\subsection{${1:name}}
+$0
+endsnippet
+
+snippet ssec* "Subsection" b
+\subsection*{${1:name}}
+$0
+endsnippet
+
+snippet sssec "Subsubsection" b
+\subsubsection{${1:name}}
+$0
+endsnippet
+
+snippet sssec* "Subsubsection" b
+\subsubsection*{${1:name}}
+$0
+endsnippet
+
+context "math()"
+snippet case "cases" wA
+\begin{cases}
+	$1
+\end{cases}
+endsnippet
+
+snippet align "Align" w
+\begin{align}
+	$1
+\end{align}
+
+endsnippet
+
+snippet align* "Align without numbering" w
+\begin{align*}
+	$1
+\end{align*}
+endsnippet
+
+snippet gather "gather" w
+\begin{gather}
+	$1
+\end{gather}
+
+endsnippet
+
+snippet gather* "gather without numbering" w
+\begin{gather*}
+	$1
+\end{gather*}
+endsnippet
+
+snippet bigfun "Big function" iA
+\begin{align*}
+	$1: $2 &\longrightarrow $3 \\\\
+	$4 &\longmapsto $1($4) = $0
+.\end{align*}
+endsnippet
