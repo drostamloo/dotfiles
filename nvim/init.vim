@@ -58,11 +58,11 @@ noremap k gk
 set autochdir
 
 " Stop automatically continuing comments to newline
-set formatoptions=jql
+set formatoptions-=cro
 
 " Automatically go to end of pasted material after pasting
 noremap p gp
 noremap P gP
 
-" Set nvim colorscheme to Nord
+" Set vim colorscheme to Nord
 colorscheme nord
