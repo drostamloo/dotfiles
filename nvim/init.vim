@@ -28,6 +28,8 @@ Plug 'KeitaNakamura/tex-conceal.vim'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'arcticicestudio/nord-vim'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -56,8 +58,11 @@ noremap k gk
 set autochdir
 
 " Stop automatically continuing comments to newline
-set formatoptions-=cro
+set formatoptions=jql
 
 " Automatically go to end of pasted material after pasting
 noremap p gp
 noremap P gP
+
+" Set nvim colorscheme to Nord
+colorscheme nord
