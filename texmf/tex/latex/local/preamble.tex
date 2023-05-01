@@ -1,0 +1,124 @@
+% math packages
+\usepackage{mathtools}  % Includes amsmath
+\usepackage{amssymb}    % Math symbols such as \mathbb
+\usepackage{amsthm}
+\usepackage{xpatch}
+\xpatchcmd\swappedhead{~}{.~}{}{}   % Add period after swapped-number theorem head
+\usepackage{pgfplots}   % plots
+\usepackage{stmaryrd}   % more symbols
+
+% other packages
+\usepackage{tikz-cd}
+\usepackage{quiver}
+\usepackage{graphicx}
+\graphicspath{ {../assets/} }
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=.,
+}
+
+% proper inline math display, adjust height for symbols like \sum
+\everymath{\displaystyle}
+
+% define tags for math use..
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+
+\newtheoremstyle{statement}%
+	{}%
+	{}%
+	{\itshape}%
+	{}%
+	{\bfseries}%
+	{: --- }%
+	{ }%
+	{}%
+
+\newtheoremstyle{defn}%
+	{}%
+	{}%
+	{\mdseries}%
+	{}%
+	{\itshape}%
+	{.}%
+	{ }%
+	{}%
+
+\newtheoremstyle{discussion}%
+	{}%
+	{}%
+	{\mdseries}%
+	{}%
+	{\bfseries}%
+	{.}%
+	{\newline}%
+	{}%
+
+\newtheoremstyle{exercise}
+	{}%
+	{}%
+	{\mdseries}%
+	{}%
+	{\scshape}%
+	{.}%
+	{ }%
+	{}%
+
+\theoremstyle{statement}
+\swapnumbers
+
+% Generic Statements
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{claim}[thm]{Claim}
+
+% Discussions and Statements with Custom Names (Discussions are the designated format for examples)
+
+\newcommand{\thistheoremname}{}
+\newtheorem{genericthm}[thm]{\thistheoremname}
+\newenvironment{namedthm}[1]
+	{\renewcommand{\thistheoremname}{#1}%
+	\begin{genericthm}}
+	{\end{genericthm}}
+
+\theoremstyle{discussion}
+\newcommand{\thisdiscussionname}{}
+\newtheorem{genericdisc}[thm]{\thisdiscussionname}
+\newenvironment{nameddisc}[1]
+	{\renewcommand{\thisdiscussionname}{#1}%
+	\begin{genericdisc}}
+	{\end{genericdisc}}
+
+% Definitions
+
+\theoremstyle{defn}
+\newtheorem{defn}[thm]{Definition}
+
+% Exercises
+
+\theoremstyle{exercise}
+\newtheorem{exer}[thm]{Exercise}
+
+\theoremstyle{exercise}
+\newcommand{\thisexercisename}{}
+\newtheorem{genericexer}[thm]{\thisexercisename}
+\newenvironment{namedexer}[1]
+	{\renewcommand{\thisexercisename}{#1}%
+	\begin{genericexer}}
+	{\end{genericexer}}
+
+% Gives begin{solution} same formating as \begin{proof}
+
+\newenvironment{solution}
+  {\begin{proof}[Solution]}
+  {\end{proof}}
+
