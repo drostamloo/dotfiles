@@ -74,43 +74,44 @@
 
 % Generic Statements
 
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{fact}[thm]{Fact}
-\newtheorem{claim}[thm]{Claim}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{claim}[theorem]{Claim}
 
 % Discussions and Statements with Custom Names (Discussions are the designated format for examples)
 
 \newcommand{\thistheoremname}{}
-\newtheorem{genericthm}[thm]{\thistheoremname}
-\newenvironment{namedthm}[1]
+\newtheorem{generictheorem}[theorem]{\thistheoremname}
+\newenvironment{namedtheorem}[1]
 	{\renewcommand{\thistheoremname}{#1}%
-	\begin{genericthm}}
-	{\end{genericthm}}
+	\begin{generictheorem}}
+	{\end{generictheorem}}
 
 \theoremstyle{discussion}
 \newcommand{\thisdiscussionname}{}
-\newtheorem{genericdisc}[thm]{\thisdiscussionname}
-\newenvironment{nameddisc}[1]
+\newtheorem{genericdiscussion}[theorem]{\thisdiscussionname}
+\newenvironment{nameddiscussion}[1]
 	{\renewcommand{\thisdiscussionname}{#1}%
-	\begin{genericdisc}}
-	{\end{genericdisc}}
+	\begin{genericdiscussion}}
+	{\end{genericdiscussion}}
 
-% Definitions
+% Definitions and Remarks
 
-\theoremstyle{defn}
-\newtheorem{defn}[thm]{Definition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
 
 % Exercises
 
 \theoremstyle{exercise}
-\newtheorem{exer}[thm]{Exercise}
+\newtheorem{exer}[theorem]{Exercise}
 
 \theoremstyle{exercise}
 \newcommand{\thisexercisename}{}
-\newtheorem{genericexer}[thm]{\thisexercisename}
+\newtheorem{genericexer}[theorem]{\thisexercisename}
 \newenvironment{namedexer}[1]
 	{\renewcommand{\thisexercisename}{#1}%
 	\begin{genericexer}}
@@ -121,4 +122,52 @@
 \newenvironment{solution}
   {\begin{proof}[Solution]}
   {\end{proof}}
+
+% Custom Math Operators
+
+% Algebraic Geometry
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\CaDiv}{CaDiv}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\CaCl}{CaCl}
+\DeclareMathOperator{\SheafHom}{\mathscr{H}\text{\kern -3pt {\calligra\large om}}\;}
+\DeclareMathOperator{\SheafExt}{\mathscr{E}\text{\kern -3pt {\calligra\large xt}}\;}
+\DeclareMathOperator{\Supp}{Supp}
+
+% Other Algebra
+
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\nil}{nil}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\characteristic}{char}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\acts}{\curvearrowright}
+\DeclareMathOperator{\trdeg}{tr. deg}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\sep}{sep}
+\DeclareMathOperator{\Syz}{Syz}
+\DeclareMathOperator{\pd}{pd}
+\DeclareMathOperator{\depth}{depth}
+\DeclareMathOperator{\bm}{bm}
+\DeclareMathOperator{\burch}{burch}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\socle}{socle}
+\DeclareMathOperator{\Char}{char}
 

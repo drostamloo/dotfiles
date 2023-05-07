@@ -93,57 +93,87 @@ snippet desc "Description" b
 endsnippet
 
 snippet thm "theorem" bA
-\begin{thm}
+\begin{theorem}
 	$1
-\end{thm}$0
+\end{theorem}
+$0
 endsnippet
 
 snippet nthm "named theorem" bA
-\begin{namedthm}{$1}
+\begin{namedtheorem}{$1}
 	$2
-\end{namedthm}$0
+\end{namedtheorem}
+$0
 endsnippet
 
 snippet lem "lemma" bA
-\begin{lem}
+\begin{lemma}
 	$1
-\end{lem}$0
+\end{lemma}
+$0
 endsnippet
 
 snippet prop "proposition" bA
-\begin{prop}
+\begin{proposition}
 	$1
-\end{prop}$0
+\end{proposition}
+$0
 endsnippet
 
 snippet cor "cor" bA
-\begin{cor}
+\begin{corollary}
 	$1
-\end{cor}$0
+\end{corollary}
+$0
 endsnippet
 
 snippet fact "fact" bA
 \begin{fact}
 	$1
-\end{fact}$0
+\end{fact}
+$0
 endsnippet
 
 snippet claim "claim" bA
 \begin{claim}
 	$1
-\end{claim}$0
+\end{claim}
+$0
 endsnippet
 
 snippet disc "discussion" bA
-\begin{nameddisc}{$1}
+\begin{nameddiscussion}{$1}
 	$2
-\end{nameddisc}$0
+\end{nameddiscussion}
+$0
 endsnippet
 
 snippet defn "definition" bA
-\begin{defn}
+\begin{definition}
 	$1
-\end{defn}$0
+\end{definition}
+$0
+endsnippet
+
+snippet rem "remark" bA
+\begin{remark}
+	$1
+\end{remark}
+$0
+endsnippet
+
+snippet pf "proof" bA
+\begin{proof}
+	$1
+\end{proof}
+$0
+endsnippet
+
+snippet sol "solution" bA
+\begin{solution}
+	$1
+\end{solution}
+$0
 endsnippet
 
 snippet pac "Package" b
@@ -162,16 +192,24 @@ endsnippet
 snippet dm "Math" wA
 \[
 ${1:${VISUAL}}
-.\] $0
+.\]
+$0
 endsnippet
 
 snippet pmat "pmat" iA
-\begin{pmatrix} $1 \end{pmatrix} $0
+\begin{pmatrix}
+$1
+\end{pmatrix}
+$0
 endsnippet
 
 snippet bmat "bmat" iA
-\begin{bmatrix} $1 \end{bmatrix} $0
+\begin{bmatrix}
+$1
+\end{bmatrix}
+$0
 endsnippet
+
 snippet chap "Chapter" b
 \chapter{${1:name}}
 $0
@@ -218,7 +256,6 @@ snippet align "Align" w
 \begin{align}
 	$1
 \end{align}
-
 endsnippet
 
 snippet align* "Align without numbering" w
