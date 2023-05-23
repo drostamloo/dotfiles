@@ -25,7 +25,7 @@ snippet AA "forall" iA
 \forall
 endsnippet
 
-snippet lll "l" iA
+snippet ll "l" iA
 \ell
 endsnippet
 
@@ -53,13 +53,23 @@ snippet => "implies" Ai
 \implies
 endsnippet
 
-snippet =< "implied by" Ai
+snippet <= "implied by" Ai
 \impliedby
 endsnippet
 
 context "math()"
 snippet iff "iff" iA
 \iff
+endsnippet
+
+context "math()"
+snippet := "colon equal" iA
+\coloneqq
+endsnippet
+
+context "math()"
+snippet =: "equal colon" iA
+\eqqcolon
 endsnippet
 
 snippet != "not equals" iA
@@ -80,11 +90,13 @@ snippet to "to" iA
 \to
 endsnippet
 
+priority 200
 context "math()"
 snippet into "injection" iA
 \hookrightarrow
 endsnippet
 
+priority 200
 context "math()"
 snippet onto "surjection" iA
 \twoheadrightarrow
@@ -142,15 +154,18 @@ snippet inn "in " iA
 \in
 endsnippet
 
-snippet Nn "cap" iA
+context "math()"
+snippet nn "cap" iA
 \cap
 endsnippet
 
-snippet UU "cup" iA
+context "math()"
+snippet uu "cup" iA
 \cup
 endsnippet
 
-snippet OO "emptyset" iA
+context "math()"
+snippet 00 "emptyset" iA
 \varnothing
 endsnippet
 

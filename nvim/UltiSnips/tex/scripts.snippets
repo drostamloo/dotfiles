@@ -16,24 +16,19 @@ snippet mcal "mathcal" iA
 \mathcal{$1}$0
 endsnippet
 
-snippet RR "real" iA
-\mathbb{R}
+context "math()"
+snippet frak "fraktur" iA
+\mathfrak{$1}$0
 endsnippet
 
-snippet QQ "Q" iA
-\mathbb{Q}
+context "math()"
+snippet '([A-Z])(\1)' "mathcal" irA
+\\mathcal{`!p snip.rv = match.group(1)`}
 endsnippet
 
-snippet ZZ "Z" iA
-\mathbb{Z}
-endsnippet
-
-snippet NN "N" iA
-\mathbb{N}
-endsnippet
-
-snippet CC "C" iA
-\mathbb{C}
+context "math()"
+snippet '([A-Z])#' "mathbb" irA
+\\mathbb{`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
