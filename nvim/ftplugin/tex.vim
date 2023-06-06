@@ -27,7 +27,7 @@ nmap <localleader>c <Plug>(vimtex-compile)
 let g:vimtex_quickfix_open_on_warning = 0
 
 " Specify PDF viewer
-let g:vimtex_view_method = 'skim'
+let g:vimtex_view_method = 'zathura'
 
 " Define a custom shortcut to trigger VimtexView
 nmap <localleader>v <plug>(vimtex-view)

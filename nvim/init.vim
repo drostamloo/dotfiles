@@ -1,3 +1,14 @@
+" Install vim-plug if not found
+let plug_install = 0
+let autoload_plug_path = stdpath('data') . '/site/autoload/plug.vim'
+if !filereadable(autoload_plug_path)
+    silent exe '!curl -fL --create-dirs -o ' . autoload_plug_path . 
+        \ ' https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    execute 'source ' . fnameescape(autoload_plug_path)
+    let plug_install = 1
+endif
+unlet autoload_plug_path
+
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -36,6 +47,12 @@ call plug#end()
 " You can revert the settings after the call like so:
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
+
+" Install plugins if not yet installed
+if plug_install
+    PlugInstall --sync
+endif
+unlet plug_install
 
 " UltiSnips Settings
 let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
