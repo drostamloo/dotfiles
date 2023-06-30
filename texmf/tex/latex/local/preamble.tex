@@ -1,11 +1,11 @@
 % math packages
 \usepackage{mathtools}  % Includes amsmath
 \usepackage{amssymb}    % Math symbols such as \mathbb
-\usepackage{amsthm}
-\usepackage{xpatch}
+\usepackage{amsthm}	   % theorem environments
+\usepackage{xpatch}    % Patch amsthm \swappedhead to add period after theorem head
 \xpatchcmd\swappedhead{~}{.~}{}{}   % Add period after swapped-number theorem head
-\usepackage{pgfplots}   % plots
 \usepackage{stmaryrd}   % more symbols
+\usepackage{mathrsfs}   % RSFS font in math mode 
 
 % other packages
 \usepackage{tikz-cd}
@@ -18,7 +18,7 @@
 \hypersetup{
     colorlinks=true,
     linktoc=all,     %set to all if you want both sections and subsections linked
-    linkcolor=.,
+    linkcolor=.,	 %the value "." sets the link color to match the surrounding text color
 }
 
 % proper inline math display, adjust height for symbols like \sum
@@ -66,7 +66,7 @@
 	{}%
 	{\scshape}%
 	{.}%
-	{ }%
+	{10pt}%
 	{}%
 
 \theoremstyle{statement}
@@ -107,15 +107,17 @@
 % Exercises
 
 \theoremstyle{exercise}
-\newtheorem{exer}[theorem]{Exercise}
+\newtheorem{exercise}{Exercise}[section]
 
 \theoremstyle{exercise}
 \newcommand{\thisexercisename}{}
-\newtheorem{genericexer}[theorem]{\thisexercisename}
-\newenvironment{namedexer}[1]
+\newtheorem{genericexercise}[exercise]{\thisexercisename}
+\newenvironment{namedexercise}[1]
 	{\renewcommand{\thisexercisename}{#1}%
-	\begin{genericexer}}
-	{\end{genericexer}}
+	\begin{genericexercise}}
+	{\end{genericexercise}}
+
+\renewcommand*{\theexercise}{\textbf{\thesection.\Alph{exercise}}} % Redefine exercise counter to use letters instead of numbers
 
 % Gives begin{solution} same formating as \begin{proof}
 
@@ -155,6 +157,8 @@
 \DeclareMathOperator{\N}{N}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\HH}{H}
+\DeclareMathOperator{\hh}{h}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\acts}{\curvearrowright}
 \DeclareMathOperator{\trdeg}{tr. deg}

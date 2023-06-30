@@ -82,7 +82,7 @@ endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
-	\item $0
+	\item$0
 \end{itemize}
 endsnippet
 
@@ -162,6 +162,20 @@ snippet rem "remark" bA
 $0
 endsnippet
 
+snippet exer "exercise" bA
+\begin{exercise}
+	$1
+\end{exercise}
+$0
+endsnippet
+
+snippet nexer "named exercise" bA
+\begin{namedexercise}{$1}
+	$2
+\end{namedexercise}
+$0
+endsnippet
+
 snippet pf "proof" bA
 \begin{proof}
 	$1
@@ -192,7 +206,7 @@ endsnippet
 snippet dm "Math" wA
 \[
 ${1:${VISUAL}}
-.\]
+\]
 $0
 endsnippet
 
@@ -210,37 +224,37 @@ $1
 $0
 endsnippet
 
-snippet chap "Chapter" b
+snippet chap "Chapter" bA
 \chapter{${1:name}}
 $0
 endsnippet
 
-snippet sec "Section" b
+snippet sec "Section" bA
 \section{${1:name}}
 $0
 endsnippet
 
-snippet sec* "Section*" b
+snippet sec* "Section*" bA
 \section*{${1:name}}
 $0
 endsnippet
 
-snippet ssec "Subsection" b
+snippet ssec "Subsection" bA
 \subsection{${1:name}}
 $0
 endsnippet
 
-snippet ssec* "Subsection" b
+snippet ssec* "Subsection" bA
 \subsection*{${1:name}}
 $0
 endsnippet
 
-snippet sssec "Subsubsection" b
+snippet sssec "Subsubsection" bA
 \subsubsection{${1:name}}
 $0
 endsnippet
 
-snippet sssec* "Subsubsection" b
+snippet sssec* "Subsubsection" bA
 \subsubsection*{${1:name}}
 $0
 endsnippet
@@ -268,7 +282,6 @@ snippet gather "gather" w
 \begin{gather}
 	$1
 \end{gather}
-
 endsnippet
 
 snippet gather* "gather without numbering" w
@@ -281,5 +294,5 @@ snippet bigfun "Big function" iA
 \begin{align*}
 	$1: $2 &\longrightarrow $3 \\\\
 	$4 &\longmapsto $1($4) = $0
-.\end{align*}
+\end{align*}
 endsnippet

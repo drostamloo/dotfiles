@@ -22,20 +22,51 @@ call plug#begin()
 
 Plug 'lervag/vimtex'
     let g:tex_flavor='latex'
-    let g:vimtex_view_method='skim'
+    let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=2
+
+	" Conceal settings
+	
+ 	set conceallevel=2
+    let g:vimtex_syntax_conceal = {
+          \ 'accents': 1,
+          \ 'ligatures': 1,
+          \ 'cites': 1,
+          \ 'fancy': 1,
+          \ 'spacing': 1,
+          \ 'greek': 1,
+          \ 'math_bounds': 1,
+          \ 'math_delimiters': 1,
+          \ 'math_fracs': 1,
+          \ 'math_super_sub': 1,
+          \ 'math_symbols': 1,
+          \ 'sections': 0,
+          \ 'styles': 1,
+          \}
+
+    let g:vimtex_syntax_conceal_cites = {
+          \ 'type': 'brackets',
+          \ 'icon': '📖',
+          \ 'verbose': v:true,
+          \}
+
+	let g:tex_conceal = 'abdmgs'
+	let g:tex_superscripts= "[0-9a-zA-Z.,:;+-<>/()=]"
+	let g:tex_subscripts= "[0-9a-zA-Z.,:;+-<>/()=]"
 
 Plug 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger = '<tab>'
     let g:UltiSnipsJumpForwardTrigger = '<tab>'
     let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-Plug 'KeitaNakamura/tex-conceal.vim'
-    set conceallevel=2
-    let g:tex_conceal='abdmg'
-    hi Conceal ctermbg=none
-	let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
-	let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
+" The following plugin no longer works with vimtex, since the latter has its
+" own conceal feature since the release of v2
+" Plug 'KeitaNakamura/tex-conceal.vim'
+"     set conceallevel=2
+"     let g:tex_conceal='abdmg'
+"     hi Conceal ctermbg=none
+" 	let g:tex_superscripts= \"[0-9a-zA-W.,:;+-<>/()=]"
+" 	let g:tex_subscripts= \"[0-9aehijklmnoprstuvx,+-/().]"
 
 Plug 'easymotion/vim-easymotion'
 
@@ -74,8 +105,9 @@ noremap k gk
 " Automatically change working directory to that of the current buffer's file
 set autochdir
 
-" Stop automatically continuing comments to newline
-set formatoptions-=cro
+" Stop automatically continuing comments to newline by removing the letters
+" 'cro' from the option 'formatoptions'
+set formatoptions=jql
 
 " Automatically go to end of pasted material after pasting
 noremap p gp

@@ -15,16 +15,24 @@ snippet ooo "\infty" iA
 \infty
 endsnippet
 
+priority 100
 context "math()"
 snippet EE "exists" iA
 \exists
 endsnippet
 
+priority 100
 context "math()"
 snippet AA "forall" iA
 \forall
 endsnippet
 
+context "math()"
+snippet bul "bullet" iA
+\bullet
+endsnippet
+
+context "math()"
 snippet ll "l" iA
 \ell
 endsnippet
@@ -63,6 +71,11 @@ snippet iff "iff" iA
 endsnippet
 
 context "math()"
+snippet == "isomorphic" iA
+\cong
+endsnippet
+
+context "math()"
 snippet := "colon equal" iA
 \coloneqq
 endsnippet
@@ -72,7 +85,7 @@ snippet =: "equal colon" iA
 \eqqcolon
 endsnippet
 
-snippet != "not equals" iA
+snippet neq "not equals" iA
 \neq
 endsnippet
 
@@ -144,13 +157,13 @@ snippet sps "superset" Aw
 \superset
 endsnippet
 
-context "math()"  
+context "math()"
 snippet notin "not in " iA
 \not\in
 endsnippet
 
 context "math()"
-snippet inn "in " iA
+snippet in "in " iA
 \in
 endsnippet
 
@@ -172,4 +185,3 @@ endsnippet
 snippet <! "normal" iA
 \triangleleft 
 endsnippet
-

@@ -1,5 +1,8 @@
 " Use `dsm` to delete surrounding math (replacing the default shorcut `ds$`)
+" and similarly for `csm` and `tsm`
 nmap dsm <Plug>(vimtex-env-delete-math)
+nmap csm <Plug>(vimtex-env-change-math)
+nmap tsm <Plug>(vimtex-env-toggle-math)
 
 " Use `ai` and `ii` for the item text object
 omap ai <Plug>(vimtex-am)
@@ -33,7 +36,10 @@ let g:vimtex_view_method = 'zathura'
 nmap <localleader>v <plug>(vimtex-view)
 
 " Change build directory
-let g:vimtex_compiler_latexmk = {'build_dir': {-> expand("%:t:r") . " Output"}}
+let g:vimtex_compiler_latexmk = {
+			\ 'aux_dir': {-> expand("%:t:r") . " Auxiliary"},
+			\ 'out_dir': {-> expand("%:t:r") . " Output"}
+			\ }
 
 " Fix nvim's regain focus behavior after inverse search
 function! s:TexFocusVim() abort
