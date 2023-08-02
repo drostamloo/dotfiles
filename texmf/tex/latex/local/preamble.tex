@@ -1,3 +1,5 @@
+%%% PACKAGES AND SETTINGS %%%
+
 % math packages
 \usepackage{mathtools}  % Includes amsmath
 \usepackage{amssymb}    % Math symbols such as \mathbb
@@ -6,6 +8,13 @@
 \xpatchcmd\swappedhead{~}{.~}{}{}   % Add period after swapped-number theorem head
 \usepackage{stmaryrd}   % more symbols
 \usepackage{mathrsfs}   % RSFS font in math mode 
+
+% typesetting sheaf Hom
+\usepackage{urwchancal} % \mathpzc (alternate mathcal): also lowercase.
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.10] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\usepackage{calligra}	% for alternative typesetting of sheaf Hom
 
 % other packages
 \usepackage{tikz-cd}
@@ -19,60 +28,89 @@
     colorlinks=true,
     linktoc=all,     %set to all if you want both sections and subsections linked
     linkcolor=.,	 %the value "." sets the link color to match the surrounding text color
+	citecolor=.,
+	urlcolor=.,
 }
+\usepackage[alphabetic]{amsrefs}
+\usepackage[capitalize]{cleveref}
+\crefname{exercise}{Exercise}{Exercises}
+\Crefname{exercise}{Exercise}{Exercises}
+\crefname{genericexercise}{Exercise}{Exercises}
+\Crefname{genericexercise}{Exercise}{Exercises}
 
 % proper inline math display, adjust height for symbols like \sum
 \everymath{\displaystyle}
 
-% define tags for math use..
+%%% THEOREM ENVIRONMENTS %%%
 
 \renewcommand\qedsymbol{$\blacksquare$}
 
+\newtheoremstyle{statement}%			% Name
+	{}%                                 % Space above
+	{}%                                 % Space below
+	{\itshape}%                         % Body font
+	{}%                                 % Indent amount
+	{\bfseries}%                        % Theorem head font
+	{: --- }%                           % Punctuation after theorem head
+	{ }%                                % Space after theorem head, ' ', or \newline
+	{}%									% Custom head spec
 
-\newtheoremstyle{statement}%
-	{}%
-	{}%
-	{\itshape}%
-	{}%
-	{\bfseries}%
-	{: --- }%
-	{ }%
-	{}%
+\newtheoremstyle{definition}%			% Name
+	{}%                                 % Space above
+	{}%                                 % Space below
+	{\mdseries}%                        % Body font
+	{}%                                 % Indent amount
+	{\itshape}%                         % Theorem head font
+	{.}%                                % Punctuation after theorem head
+	{ }%                                % Space after theorem head, ' ', or \newline
+	{}%									% Custom head spec
 
-\newtheoremstyle{defn}%
-	{}%
-	{}%
-	{\mdseries}%
-	{}%
-	{\itshape}%
-	{.}%
-	{ }%
-	{}%
+\newtheoremstyle{discussion}%			% Name
+	{}%									% Space above
+	{}%									% Space below
+	{\mdseries}%						% Body font
+	{}%									% Indent amount
+	{\bfseries}%						% Theorem head font
+	{.}%								% Punctuation after theorem head
+	{ }%								% Space after theorem head, ' ', or \newline
+	{}%									% Custom head spec
 
-\newtheoremstyle{discussion}%
-	{}%
-	{}%
-	{\mdseries}%
-	{}%
-	{\bfseries}%
-	{.}%
-	{\newline}%
-	{}%
+\newtheoremstyle{exercise}%             % Name
+	{}%                                 % Space above
+	{}%                                 % Space below
+	{\mdseries}%                        % Body font
+  	{}%                                 % Indent amount
+  	{}%                            		% Theorem head font
+  	{.}%                                % Punctuation after theorem head
+  	{10pt}%                             % Space after theorem head, ' ', or \newline
+  	{\textbf{\thmnumber{#2}.} \textsc{\thmname{#1}}\thmnote{ (#3)}}%		% Custom head spec
 
-\newtheoremstyle{exercise}
-	{}%
-	{}%
-	{\mdseries}%
-	{}%
-	{\scshape}%
-	{.}%
-	{10pt}%
-	{}%
+% Exercises
 
-\theoremstyle{statement}
-\swapnumbers
+\theoremstyle{exercise}
+\newtheorem{exercise}{Exercise}[section]
+
+\theoremstyle{exercise}
+\newcommand{\thisexercisename}{}
+\newtheorem{genericexercise}[exercise]{\thisexercisename}
+\newenvironment{namedexercise}[1]
+	{\renewcommand{\thisexercisename}{#1}%
+	\begin{genericexercise}}
+	{\end{genericexercise}}
+
+\renewcommand*{\theexercise}{\thesection.\Alph{exercise}} % Redefine exercise counter to use letters instead of numbers
+
+% Gives begin{solution} same formating as \begin{proof}
+
+\newenvironment{solution}
+  {\begin{proof}[Solution]}
+  {\end{proof}}
 
 % Generic Statements
+
+\theoremstyle{statement}
+\swapnumbers 
+% This is done to make the theorem counter appear first for the theorem environments created below. We cannot use the \swapnumbers command for the exercise environments above because the theorem head for the exercise environment uses multiple font styles which are best defined manually in the custom head spec.
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -104,28 +142,8 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 
-% Exercises
 
-\theoremstyle{exercise}
-\newtheorem{exercise}{Exercise}[section]
-
-\theoremstyle{exercise}
-\newcommand{\thisexercisename}{}
-\newtheorem{genericexercise}[exercise]{\thisexercisename}
-\newenvironment{namedexercise}[1]
-	{\renewcommand{\thisexercisename}{#1}%
-	\begin{genericexercise}}
-	{\end{genericexercise}}
-
-\renewcommand*{\theexercise}{\textbf{\thesection.\Alph{exercise}}} % Redefine exercise counter to use letters instead of numbers
-
-% Gives begin{solution} same formating as \begin{proof}
-
-\newenvironment{solution}
-  {\begin{proof}[Solution]}
-  {\end{proof}}
-
-% Custom Math Operators
+%%% CUSTOM MATH OPERATORS %%%
 
 % Algebraic Geometry
 
@@ -136,9 +154,13 @@
 \DeclareMathOperator{\CaDiv}{CaDiv}
 \DeclareMathOperator{\Cl}{Cl}
 \DeclareMathOperator{\CaCl}{CaCl}
-\DeclareMathOperator{\SheafHom}{\mathscr{H}\text{\kern -3pt {\calligra\large om}}\;}
-\DeclareMathOperator{\SheafExt}{\mathscr{E}\text{\kern -3pt {\calligra\large xt}}\;}
+\DeclareMathOperator{\HOM}{\mathpzc{Hom}}
+\DeclareMathOperator{\EXT}{\mathpzc{Ext}}
 \DeclareMathOperator{\Supp}{Supp}
+
+% alternative sheaf Hom and sheaf Ext typesetting
+\DeclareMathOperator{\SheafHom}{\mathscr{H}\kern -3pt \text{{\calligra\large om}}\,}
+\DeclareMathOperator{\SheafExt}{\mathscr{E}\text{\kern -3pt {\calligra\large xt}}\,}
 
 % Other Algebra
 

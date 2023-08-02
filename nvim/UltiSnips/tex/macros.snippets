@@ -137,10 +137,16 @@ snippet sum "sum" wA
 \sum_{${1:${VISUAL}}}^{$2}
 endsnippet
 
-context "math()"
-snippet lim "limit" wA
-\lim_{${1:n} \to ${2:\infty}} 
-endsnippet
+#context "math()"
+#snippet lim "limit" wA
+#\lim_{$1}
+#endsnippet
+#
+#priority 200
+#context "math()"
+#snippet colim "colimit" wA
+#\colim_{$1}
+#endsnippet
 
 context "math()"
 snippet prd "product" wA
@@ -285,10 +291,10 @@ snippet "([a-zA-Z])tilde" "tilde" riA
 \widetilde{`!p snip.rv=match.group(1)`}
 endsnippet
 
-snippet uuu "bigcup" iA
-\bigcup_{${1:i \in ${2: I}}}$0
-endsnippet
-
-snippet nnn "bigcap" iA
-\bigcap_{${1:i \in ${2: I}}}$0
-endsnippet
+#snippet \cupu "bigcup" iA
+#\bigcup_{${1:i \in ${2: I}}}$0
+#endsnippet
+#
+#snippet \capn "bigcap" iA
+#\bigcap_{${1:i \in ${2: I}}}$0
+#endsnippet

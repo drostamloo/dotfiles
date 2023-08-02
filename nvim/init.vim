@@ -109,9 +109,10 @@ set autochdir
 " 'cro' from the option 'formatoptions'
 set formatoptions=jql
 
-" Automatically go to end of pasted material after pasting
-noremap p gp
-noremap P gP
+" Fix paste so that it respects indentation of previous line and jumps to end
+" of pasted material
+noremap p p`[v`]=`]
+noremap P P`[v\]=`]
 
 " Set vim colorscheme to Nord
 colorscheme nord

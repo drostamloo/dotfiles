@@ -36,10 +36,15 @@ let g:vimtex_view_method = 'zathura'
 nmap <localleader>v <plug>(vimtex-view)
 
 " Change build directory
+
 let g:vimtex_compiler_latexmk = {
-			\ 'aux_dir': {-> expand("%:t:r") . " Auxiliary"},
-			\ 'out_dir': {-> expand("%:t:r") . " Output"}
+			\ 'aux_dir': "Auxiliary"
 			\ }
+
+"let g:vimtex_compiler_latexmk = {
+"			\ 'aux_dir': {-> expand("%:t:r") . \" Auxiliary"},
+"			\ 'out_dir': {-> expand("%:t:r") . \" Output"}
+"			\ }
 
 " Fix nvim's regain focus behavior after inverse search
 function! s:TexFocusVim() abort
