@@ -14,6 +14,8 @@ brew "zegervdv/zathura/girara", args: ["HEAD"]
 brew "zegervdv/zathura/zathura", args: ["HEAD", "with-synctex"]
 brew "zegervdv/zathura/zathura-pdf-poppler"
 cask "alacritty"
+cask "anki"
 cask "emacs"
 cask "mactex-no-gui"
+cask "mathpix-snipping-tool"
 cask "rectangle"
