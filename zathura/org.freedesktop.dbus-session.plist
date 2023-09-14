@@ -7,7 +7,7 @@
 
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/Cellar/dbus/1.14.8/bin/dbus-daemon</string>
+		<string>/usr/local/Cellar/dbus/1.14.10/bin/dbus-daemon</string>
 		<string>--nofork</string>
 		<string>--session</string>
 	</array>

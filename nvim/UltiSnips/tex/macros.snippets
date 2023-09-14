@@ -66,7 +66,7 @@ snippet floor "floor" iA
 \left\lfloor ${1:${VISUAL}} \right\rfloor$0
 endsnippet
 
-snippet '' "double quotes" iA
+snippet `` "double quotes" iA
 \`\`${1:${VISUAL}}''
 endsnippet
 
@@ -251,37 +251,42 @@ snippet \inv "inverse" iA
 endsnippet
 
 context "math()"
-snippet compl "complement" iA
+snippet cc "complement" iA
 ^{c}
 endsnippet
 
 priority 10
 context "math()"
-snippet "bar" "bar" riA
+snippet bar "bar" iA
 \overline{${1:${VISUAL}}}$0
 endsnippet
 
 priority 100
 context "math()"
-snippet "([a-zA-Z])bar" "bar" riA
+snippet '([a-zA-Z])bar' "bar" riA
 \overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet _- "underline"
+\underline{${1:${VISUAL}}}
 endsnippet
 
 priority 10
 context "math()"
-snippet "hat" "hat" riA
+snippet hat "hat" iA
 \widehat{${1:${VISUAL}}}$0
 endsnippet
 
 priority 100
 context "math()"
-snippet "([a-zA-Z])hat" "hat" riA
+snippet '([a-zA-Z])hat' "hat" riA
 \widehat{`!p snip.rv=match.group(1)`}
 endsnippet
 
 priority 10
 context "math()"
-snippet "tilde" "tilde" riA
+snippet tilde "tilde" iA
 \widetilde{${1:${VISUAL}}}$0
 endsnippet
 
