@@ -116,3 +116,6 @@ noremap P P`[v\]=`]
 
 " Set vim colorscheme to Nord
 colorscheme nord
+
+" Set shortcut for switching buffers
+nnoremap <Leader>b :buffers<CR>:buffer<Space>

@@ -14,11 +14,11 @@ endglobal
 snippet template "Basic template" b
 \documentclass[letterpaper, 12pt]{$1}
 
-\input{preamble.tex}
 \usepackage[headheight=20pt]{geometry}
 \usepackage[sc]{mathpazo}
 \linespread{1.05}         % Palladio needs more leading (space between lines)
 \usepackage[T1]{fontenc}
+\input{preamble.tex}
 
 \title{$2}
 \author{$3}
@@ -38,14 +38,12 @@ snippet beg "begin{} / end{}" bA
 endsnippet
 
 snippet table "Table environment" b
-\begin{table}[${1:htpb}]
-	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{tabular}{${5:c}}
-	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
-	\end{tabular}
-\end{table}
+\begin{center}
+\begin{tabular}{${1:c c c}}
+	$2
+\end{tabular}
+\end{center}
+$0
 endsnippet
 
 snippet fig "Figure environment" b
@@ -148,14 +146,14 @@ snippet disc "discussion" bA
 $0
 endsnippet
 
-snippet defn "definition" bA
+snippet def "definition" bA
 \begin{definition}
 	$1
 \end{definition}
 $0
 endsnippet
 
-snippet rem "remark" bA
+snippet rmk "remark" bA
 \begin{remark}
 	$1
 \end{remark}
@@ -194,13 +192,18 @@ snippet pac "Package" b
 \usepackage[${1:options}]{${2:package}}$0
 endsnippet
 
+# THIS VERSION OF MATH MODE TRIES TO ADD SPACES WHEN THERE IS PUNCTUATION AFTER MATH
+#snippet mk "Math" wA
+#$${1}$`!p
+#if t[2] and t[2][0] not in [',', '.', '?', '-', ':', ';', '!', '\'', ' ']:
+#	snip.rv = ' '
+#else:
+#	snip.rv = ''
+#`$2
+#endsnippet
+
 snippet mk "Math" wA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-	snip.rv = ' '
-else:
-	snip.rv = ''
-`$2
+$${1:${VISUAL}}$$0
 endsnippet
 
 snippet dm "Math" wA

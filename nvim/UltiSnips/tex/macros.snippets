@@ -12,6 +12,31 @@ def env(name):
 endglobal
 
 
+priority 150
+context "math()"
+snippet xto "xrightarrow" wA
+\xrightarrow{${1:${VISUAL}}}$0
+endsnippet
+
+priority 250
+context "math()"
+snippet xinto "xhookrightarrow" wA
+\xhookrightarrow{${1:${VISUAL}}}$0
+endsnippet
+
+priority 250
+context "math()"
+snippet xonto "xtwoheadrightarrow" wA
+\xtwoheadrightarrow{${1:${VISUAL}}}$0
+endsnippet
+
+priority 200
+context "math()"
+snippet x!> "xmapsto" iA
+\xmapsto{${1:${VISUAL}}
+endsnippet
+
+priority 10
 context "math()"
 snippet // "Fraction" iA
 \\frac{${1:${VISUAL}}}{$2}$0
@@ -21,8 +46,9 @@ endsnippet
 #\\frac{${VISUAL}}{$1}$0
 #endsnippet
 
+priority 100
 context "math()"
-snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)//' "symbol frac" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
@@ -119,7 +145,7 @@ endsnippet
 
 context "math()"
 snippet lra "leftangle rightangle" iA
-\left<${1:${VISUAL}} \right>$0
+\left\langle${1:${VISUAL}} \right\rangle$0
 endsnippet
 
 context "math()"
@@ -212,22 +238,22 @@ endsnippet
 
 context "math()"
 snippet xii "xi" iA
-x_{i}
+x_i
 endsnippet
 
 context "math()"
 snippet yii "yi" iA
-y_{i}
+y_i
 endsnippet
 
 context "math()"
 snippet xjj "xj" iA
-x_{j}
+x_j
 endsnippet
 
 context "math()"
 snippet yjj "yj" iA
-y_{j}
+y_j
 endsnippet
 
 context "math()"
@@ -237,7 +263,7 @@ endsnippet
 
 context "math()"
 snippet xmm "x" iA
-x_{m}
+x_m
 endsnippet
 
 context "math()"
@@ -246,7 +272,7 @@ snippet norm "norm" iA
 endsnippet
 
 context "math()"
-snippet \inv "inverse" iA
+snippet inv "inverse" iA
 ^{-1}
 endsnippet
 
@@ -295,11 +321,3 @@ context "math()"
 snippet "([a-zA-Z])tilde" "tilde" riA
 \widetilde{`!p snip.rv=match.group(1)`}
 endsnippet
-
-#snippet \cupu "bigcup" iA
-#\bigcup_{${1:i \in ${2: I}}}$0
-#endsnippet
-#
-#snippet \capn "bigcap" iA
-#\bigcap_{${1:i \in ${2: I}}}$0
-#endsnippet
