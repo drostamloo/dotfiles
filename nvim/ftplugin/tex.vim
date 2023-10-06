@@ -46,7 +46,6 @@ let g:vimtex_compiler_latexmk = {
 "			\ 'out_dir': {-> expand("%:t:r") . \" Output"}
 "			\ }
 
-" Fix nvim's regain focus behavior after inverse search
 function! s:TexFocusVim() abort
   " Replace `TERMINAL` with the name of your terminal application
   " Example: execute "!open -a iTerm"  
