@@ -26,7 +26,7 @@ snippet template "Basic template" b
 
 \begin{document}
 
-$5
+$0
 
 \end{document}
 endsnippet
@@ -34,7 +34,7 @@ endsnippet
 snippet beg "begin{} / end{}" bA
 \\begin{$1}
 	$2
-\\end{$1}$0
+\\end{$1}
 endsnippet
 
 snippet table "Table environment" b
@@ -43,7 +43,6 @@ snippet table "Table environment" b
 	$2
 \end{tabular}
 \end{center}
-$0
 endsnippet
 
 snippet fig "Figure environment" b
@@ -74,19 +73,19 @@ endsnippet
 
 snippet enum "Enumerate" bA
 \begin{enumerate}
-	\item $0
+	\item $1
 \end{enumerate}
 endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
-	\item$0
+	\item$1
 \end{itemize}
 endsnippet
 
 snippet desc "Description" b
 \begin{description}
-	\item[$1] $0
+	\item[$1] $2
 \end{description}
 endsnippet
 
@@ -94,102 +93,88 @@ snippet thm "theorem" bA
 \begin{theorem}
 	$1
 \end{theorem}
-$0
 endsnippet
 
 snippet nthm "named theorem" bA
 \begin{namedtheorem}{$1}
 	$2
 \end{namedtheorem}
-$0
 endsnippet
 
 snippet lem "lemma" bA
 \begin{lemma}
 	$1
 \end{lemma}
-$0
 endsnippet
 
 snippet prop "proposition" bA
 \begin{proposition}
 	$1
 \end{proposition}
-$0
 endsnippet
 
 snippet cor "cor" bA
 \begin{corollary}
 	$1
 \end{corollary}
-$0
 endsnippet
 
 snippet fact "fact" bA
 \begin{fact}
 	$1
 \end{fact}
-$0
 endsnippet
 
 snippet claim "claim" bA
 \begin{claim}
 	$1
 \end{claim}
-$0
 endsnippet
 
 snippet disc "discussion" bA
 \begin{nameddiscussion}{$1}
 	$2
 \end{nameddiscussion}
-$0
 endsnippet
 
 snippet def "definition" bA
 \begin{definition}
 	$1
 \end{definition}
-$0
 endsnippet
 
 snippet rmk "remark" bA
 \begin{remark}
 	$1
 \end{remark}
-$0
 endsnippet
 
 snippet exer "exercise" bA
 \begin{exercise}
 	$1
 \end{exercise}
-$0
 endsnippet
 
 snippet nexer "named exercise" bA
 \begin{namedexercise}{$1}
 	$2
 \end{namedexercise}
-$0
 endsnippet
 
 snippet pf "proof" bA
 \begin{proof}
 	$1
 \end{proof}
-$0
 endsnippet
 
 snippet sol "solution" bA
 \begin{solution}
 	$1
 \end{solution}
-$0
 endsnippet
 
 snippet pac "Package" b
-\usepackage[${1:options}]{${2:package}}$0
+\usepackage[${1:options}]{${2:package}}
 endsnippet
 
 # THIS VERSION OF MATH MODE TRIES TO ADD SPACES WHEN THERE IS PUNCTUATION AFTER MATH
@@ -203,63 +188,53 @@ endsnippet
 #endsnippet
 
 snippet mk "Math" wA
-$${1:${VISUAL}}$$0
+$${1:${VISUAL}}$
 endsnippet
 
 snippet dm "Math" wA
 \[
 	${1:${VISUAL}}
 \]
-$0
 endsnippet
 
 snippet pmat "pmat" iA
 \begin{pmatrix}
 $1
 \end{pmatrix}
-$0
 endsnippet
 
 snippet bmat "bmat" iA
 \begin{bmatrix}
 $1
 \end{bmatrix}
-$0
 endsnippet
 
 snippet chap "Chapter" bA
 \chapter{${1:name}}
-$0
 endsnippet
 
 snippet sec "Section" bA
 \section{${1:name}}
-$0
 endsnippet
 
 snippet sec* "Section*" bA
 \section*{${1:name}}
-$0
 endsnippet
 
 snippet ssec "Subsection" bA
 \subsection{${1:name}}
-$0
 endsnippet
 
 snippet ssec* "Subsection" bA
 \subsection*{${1:name}}
-$0
 endsnippet
 
 snippet sssec "Subsubsection" bA
 \subsubsection{${1:name}}
-$0
 endsnippet
 
 snippet sssec* "Subsubsection" bA
 \subsubsection*{${1:name}}
-$0
 endsnippet
 
 context "math()"
@@ -296,6 +271,6 @@ endsnippet
 snippet bigfun "Big function" iA
 \begin{align*}
 	$1: $2 &\longrightarrow $3 \\\\
-	$4 &\longmapsto $1($4) = $0
+	$4 &\longmapsto $1($4) = $5
 \end{align*}
 endsnippet
