@@ -72,6 +72,8 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'arcticicestudio/nord-vim'
 
+Plug '~/.config/nvim/m2'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -115,7 +117,24 @@ noremap p p`[v`]=`]
 noremap P P`[v\]=`]
 
 " Set vim colorscheme to Nord
+function! MyHighlights() abort
+	highlight Conceal guifg=#D8DEE9 guibg=none
+
+	if $TERM_PROGRAM == 'Apple_Terminal'
+		highlight Visual term=reverse ctermfg=none ctermbg=60 cterm=none guibg=#434C5E guifg=#D8DEE9 gui=none
+	endif
+endfunction
+
+augroup MyColors
+	autocmd!
+	autocmd ColorScheme * call MyHighlights()
+augroup END
+
 colorscheme nord
+
 
 " Set shortcut for switching buffers
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
+
+" Source m2.vimrc init file from ~/.config/nvim/ directory
+au BufRead,BufNewFile *.m2 so ~/.config/nvim/m2.vimrc
