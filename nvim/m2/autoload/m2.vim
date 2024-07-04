@@ -1,10 +1,10 @@
 " Check for all required executables
 if !executable('screen')
-	call M2Warning("Please install 'screen' to run vim-M2-plugin")
+	call M2Warning("Please install 'screen' to run m2-plugin")
 	sleep 2
 	finish
 elseif !executable('M2')
-	call M2Warning("Please install 'M2' to run vim-M2-plugin")
+	call M2Warning("Please install 'M2' to run m2-plugin")
 	sleep 2
 	finish
 endif
@@ -97,11 +97,11 @@ function! m2#M2Send(...)
 				endif
 			endif
 		else
-			call m2#M2Warning('vim-M2-plugin: Arguments must be a pair of strings/integers.')
+			call m2#M2Warning('m2-plugin: Arguments must be a pair of strings/integers.')
 			return
 		endif
 	else
-		call m2#M2Warning('vim-M2-plugin: Invalid number of arguments.')
+		call m2#M2Warning('m2-plugin: Invalid number of arguments.')
 	endif
 	" send them on!
 	for lin in lines

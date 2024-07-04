@@ -8,7 +8,7 @@
 " Description:  Modification to run on Apples, with Terminal.app
 " Screen Session name
 "let b:screens = printf("vim-M2-plugin-%s", localtime())
-let b:screens ="vim-M2-plugin"
+let b:screens ="m2-plugin"
 " Terminal geometry (WxH+X+Y)
 let b:termgeom="80x25+0-0"
 
