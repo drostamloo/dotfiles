@@ -72,7 +72,13 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'arcticicestudio/nord-vim'
 
+Plug 'kassio/neoterm'
+	let g:neoterm_default_mod = 'vertical botright'
+	let g:neoterm_autoscroll = 1
+
 Plug '~/.config/nvim/m2'
+
+Plug 'wsdjeg/vim-fetch'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -116,7 +122,7 @@ set formatoptions=jql
 noremap p p`[v`]=`]
 noremap P P`[v\]=`]
 
-" Set vim colorscheme to Nord
+" Set vim colorscheme to Nord, fix some concealing color issues
 function! MyHighlights() abort
 	highlight Conceal guifg=#D8DEE9 guibg=none
 
@@ -132,9 +138,23 @@ augroup END
 
 colorscheme nord
 
-
 " Set shortcut for switching buffers
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 
 " Source m2.vimrc init file from ~/.config/nvim/ directory
 au BufRead,BufNewFile *.m2 so ~/.config/nvim/m2.vimrc
+
+" Easier window movement keybinds
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+tnoremap <Esc> <C-\><C-n>
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
