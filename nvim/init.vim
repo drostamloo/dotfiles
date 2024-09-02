@@ -141,9 +141,6 @@ colorscheme nord
 " Set shortcut for switching buffers
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 
-" Source m2.vimrc init file from ~/.config/nvim/ directory
-au BufRead,BufNewFile *.m2 so ~/.config/nvim/m2.vimrc
-
 " Easier window movement keybinds
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
@@ -158,3 +155,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Source m2.vimrc init file from ~/.config/nvim/ directory
+au BufRead,BufNewFile *.m2 so ~/.config/nvim/m2.vimrc
